@@ -1,0 +1,59 @@
+<ion-content>
+  <!--formulario para incio de sesion-->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="0" size-lg="4">
+        <!--logo-->
+        <div id="fondo">
+          <img src="../../assets/img/Sin fondo (Blanco)(Recortado).png">
+        </div>    
+      </ion-col>
+      <ion-col size="12" size-lg="8">
+        <ion-header>
+          <ion-toolbar>
+            <!--apartado de incio de sesion -->
+            <ion-title>INGRESAR</ion-title>
+            <ion-buttons slot="end">
+              <!--cerrar modal -->
+              <ion-button (click)="closeModal()">
+                <!--cerrar modal-->
+                <ion-icon slot="start" name="close"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <form>
+          <ion-item lines="full">
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input type="text" #email required type="email" placeholder="Ingrese su correo"></ion-input>
+          </ion-item>
+          <br>
+          <ion-item lines="full">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" #password required placeholder="Ingrese su contraseña"></ion-input>
+          </ion-item>
+          <br>
+          <ion-button type="submit" (click)="onLogin(email,password)" expand="block" color="secondary">Iniciar Sesion</ion-button>
+          <br>
+          <!--boton para logearse con google-->
+          <p class="ion-text-center">
+            o ingresa con google
+          </p>
+          <ion-button type="submit" color="danger" (click)="onLoginGoogle()" expand="block">
+            <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+          </ion-button>
+
+          <br>
+          <p class="ion-text-center">
+            ¿Olvidaste tu contraseña?
+            <a (click)="openForgotModal()">Restablecela aquí</a>
+          </p>
+          <p class="ion-text-center">
+            ¿No tienes cuenta aún?
+            <a (click)="openRegisterModal()" (click)="closeModal()">Registrate aquí</a> 
+          </p>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
