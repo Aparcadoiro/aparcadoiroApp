@@ -76,6 +76,11 @@ _se utlizaron las siguientes bases de datos_
 * MySQL
 
 * Firebase
+## Lenguajes de programación utilizados 🛠️
+* HTML
+* Typescript
+* scss
+* PHP
 
 ## Autores ✒️
 
