@@ -40,4 +40,4 @@ _se utlizaron las siguientes bases de datos_
 
 ## Autor ✒️
 
-* **Camilo Sanchez* - *Backend* 
+* *Camilo Sanchez* - *Backend* 
