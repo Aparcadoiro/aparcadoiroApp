@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis parqueaderos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openAddParqueaderoModal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="object-fit: cover;" size-lg="3">
+    <ul *ngIf="user$ | async as user">
+      <ion-row  >
+        <!-- Funcion para recorrer le tabla parqueaderos de la base de datos (Para traer todos los registros de los parqueaderos) -->
+        <ion-card style="background-color: rgba(221, 221, 221, 0.707); box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.275);"
+        *ngFor="let parqueadero of parqueaderos$|async" (click)="openDetailModal(parqueadero)">
+          <div *ngIf="parqueadero.uid == user.uid">
+            <ion-card-content>
+              <img style="object-fit: cover; height: 20vh; max-width: 20vh; " [src]="parqueadero.imagenUrl" />
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </ion-row>
+    </ul>
+  </ion-grid>
+</ion-content>

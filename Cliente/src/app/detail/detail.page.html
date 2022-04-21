@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <!--llamado de parqueadero TS direccion model.ts -->
+    <ion-title>{{parqueadero.direccion}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">
+          <ion-icon slot="start" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--importacion de la imagen para parquederos-->
+  <img [src]="parqueadero.imagenUrl" alt="">
+
+  <div class="ion-padding">
+    <ion-text>
+      <!--mostrar al usuario los cupos disponibles-->
+      <h4>Cupos disponibles {{parqueadero.cupos}}/{{parqueadero.cupos}}</h4>
+      <h4>Direccion del estacionamiento: {{parqueadero.direccion}}</h4>
+      <h4>Tarifa mínima de cobro: {{parqueadero.tarifa}}</h4>
+      <h4 class="ion-margin-vertical">Tipo de medio de transporte que acepta: {{parqueadero.vehiculos}}</h4>
+      <p align = "right">
+        <ion-button (click)="openReservasModal(parqueadero)" color="success">Reservas</ion-button>
+        <!--abrir modal para editar parqueadero -->
+        <ion-button (click)="openEditModal()" color="primary">Editar</ion-button>
+      </p>
+    </ion-text>
+    
+  </div>
+</ion-content>

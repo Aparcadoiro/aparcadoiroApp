@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ reserva.dia_ingreso }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <h3>Placa del vehiculo: {{ reserva.placa }}</h3>
+    <h3>Dia de la reserva: {{ reserva.dia_ingreso }}</h3>
+    <h3>Hora de la ingreso: {{ reserva.hora_ingreso }}</h3>
+    <div *ngIf="reserva.hora_salida == null">
+      <h3> Hora de salida: Indefinida</h3>
+    </div>
+    <div *ngIf="reserva.hora_salida != null">
+      <h3> Hora de salida: {{ reserva.hora_salida }}</h3>
+    </div>
+    <h3>Estado de la reserva: 
+      <div *ngIf="reserva.confirmParqueadero == false && reserva.confirmUser == true">
+        <ion-text color="danger">
+          <h3>Requiere confirmacion de pago</h3>
+        </ion-text>
+        <ion-button (click)="openPagoModal()" color="success">
+         Confirmar pago
+        </ion-button>
+      </div>
+      <div *ngIf="reserva.confirmParqueadero == false && reserva.confirmUser == false">
+        <ion-text color="danger">
+          <h3>Se requiere la confirmacion de pago</h3>
+        </ion-text>
+        <ion-button (click)="openPagoModal()" color="success">
+          Confirmar pago
+         </ion-button>
+      </div>
+      <div *ngIf="reserva.confirmParqueadero == true && reserva.confirmUser == true">
+        <ion-text color="success">
+          <h3>Reserva completada</h3>
+        </ion-text>
+      </div>
+      
+      <div *ngIf="reserva.confirmParqueadero == true && reserva.confirmUser == false">
+        <ion-text color="danger">
+          <h3>Requiere confirmacion de pago del usuario</h3>
+        </ion-text>
+      </div>
+    </h3>
+  </div>
+</ion-content>
