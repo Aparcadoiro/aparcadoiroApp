@@ -1,0 +1,22 @@
+
+<!--Importacion de la pantalla de carga del mapa -->
+<app-loading *ngIf="!isUserLocationReady;else mapReady"></app-loading>
+
+
+<!--si el loading lo esta listo se ejecutara la funcion de la parte posterior-->
+<ng-template #mapReady>
+    <!--Importacion de la vista del mapa-->
+    <app-map-view></app-map-view>
+
+    <!--implementacion de la ubicacion del usuaurio en tiempo real-->
+    <app-btn-my-location></app-btn-my-location>
+
+    <!--llamado del search para busqueda de informacion-->
+    <app-search-bar></app-search-bar>
+    <!--logo-->
+    <app-aparcadoiro-logo></app-aparcadoiro-logo>
+</ng-template>
+
+
+
+

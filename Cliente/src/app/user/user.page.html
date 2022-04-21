@@ -1,0 +1,152 @@
+<!-- Header del html ionic 
+<ion-header>
+  <ion-toolbar>
+     Titulo del header
+    <ion-title>
+      Etiqueta para usar la imagen del logo de la app
+      <ion-title size="large">
+        <ion-img src="../../assets/img/Sin fondo (Negro) (Recortado).png" style="width: 90px;"></ion-img>
+      </ion-title>
+    </ion-title>
+    Botones para inicio de sesion
+    <ion-buttons slot="end">
+      <ion-row>
+        <ion-col>
+           Funcion para sincronizar la informacion de la tabla Usuario 
+          <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user">
+             Acordeon para traer las etiquetas Mis parqueaderos y Salir
+            <ion-accordion-group>
+              <ion-accordion value="user">
+                <ion-item slot="header">
+                  <div *ngIf="user?.displayName == null" else #nombre>
+                    <ion-label>{{ user?.email }}</ion-label>
+                  </div>
+                  <div #nombre>
+                    <ion-label>{{ user?.displayName }}</ion-label>
+                  </div>
+                  Funcion para traer el nombre del usuario 
+                  
+                </ion-item>
+                 Contenido del acordeon 
+                <ion-list slot="content">
+                  <ion-item>
+                    <ion-button class="nav-link" (click)="openReservasModal()">Mis reservas</ion-button>
+                  </ion-item>
+                   Item 'Mis Paqueaderos'
+                  <ion-item>
+                    <ion-button class="nav-link" (click)="openParqueaderosModal()">Mis parqueaderos</ion-button>
+                  </ion-item>
+                   Item 'Salir' 
+                  <ion-item>
+                    <ion-button class="nav-link" (click)="onLogout()" slot="start">Salir</ion-button>
+                  </ion-item>
+                </ion-list>
+              </ion-accordion>
+            </ion-accordion-group>
+          </ul>
+        </ion-col>
+      </ion-row>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large">
+      <ion-img src="../../assets/img/Sin fondo (Negro) (Recortado).png" style="width: 90px;"></ion-img>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover( $event )">
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- Creacion de las card-->
+<ion-content>
+  <!-- Etiqueta para definir el tamaño de las cards -->
+  <ion-grid size-lg="3">
+    <ion-row>
+      <!-- Div contenedor del mapa -->
+
+        <app-map-screen id="mapa"></app-map-screen>
+
+    
+      <!-- Funcion para recorrer le tabla parqueaderos de la base de datos (Para traer todos los registros de los parqueaderos) -->
+      <ion-card style="background-color: rgba(221, 221, 221, 0.707); box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.275);"
+        *ngFor="let parqueadero of parqueaderos$|async" (click)="openDetailModal(parqueadero)">
+        <!-- Etiqueta para mostrar el contenido de las cards -->
+        <ion-card-content>
+          <!-- Etiqueta para traer la imagen del parqueadero y mostrarla en la card -->
+          <img style="object-fit: cover; height: 30vh; max-width: 30vh; " [src]="parqueadero.imagenUrl" />
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- Pie de pagina -->
+  <footer
+    class="text-center text-lg-start text-light justify-content-center justify-content-lg-between p-1 border-bottom"
+    style="background-color: #232F3E; position:absolute; left:0; width: 100%;">
+    <section>
+      <!-- Contenedor de la pagina -->
+      <div class="container text-center text-md-start mt-10">
+        <!-- Fila -->
+        <div class="row mt-3">
+          <!-- Columna -->
+          <div class="col-md-1 col-lg-4 col-xl-4 mx-auto mb-4">
+            <!-- Contenido -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <img width="230px" src="../../assets/img/Sin fondo (Blanco)(Recortado).png" alt="">
+            </h6>
+          </div>
+          <!-- Columna -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
+            <!-- Links del pie de pagina -->
+            <h6 class="text-uppercase mb-4">
+              CONTACTO
+            </h6>
+            <p>
+              +57 3142461517
+            </p>
+            <p>831542869
+            </p>
+            <p>aparcadoiro14@gmail.com
+            </p>
+          </div>
+
+          <!-- Columna -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <!-- Links del pie de pagina -->
+            <h6 class="text-uppercase mb-4">
+              LEGAL
+            </h6>
+            <p>
+              <a class="text-reset">Terminos y condiciones politicas de privacidad.</a>
+            </p>
+          </div>
+
+          <!-- Columna -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
+            <!-- Links del pie de pagina -->
+            <h6 class="text-uppercase mb-4">
+              Redes Sociales
+            </h6>
+            <div class="row">
+              <div class="col-4">
+                <p><img width="30rem" src="../../assets/img/facebook.png" alt=""></p>
+              </div>
+              <div class="col-4">
+                <p><img width="30rem" src="../../assets/img/twitter.png" alt=""></p>
+              </div>
+              <div class="col-4">
+                <p><img width="30rem" src="../../assets/img/intagram.png" alt=""></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+</ion-content>
