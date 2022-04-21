@@ -86,10 +86,10 @@ _se utlizaron las siguientes bases de datos_
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Sergio Henao** - *Backend* 
-* **Camilo Sanchez* - *Backend* 
-* **Valentina Montenegro** - *Frontend* 
-* **Camilo Sanchez* - *Frontend* 
+* *Sergio Henao** - *Backend* 
+* *Camilo Sanchez* - *Backend* 
+* *Valentina Montenegro** - *Frontend* 
+* *Camilo Sanchez* - *Frontend* 
  
 
 
