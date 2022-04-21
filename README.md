@@ -34,4 +34,4 @@ _se utilizaron las siguientes herraminetas_
 
 ## Autor ✒️
 
-* **Felipe López* - *Frontend* 
+* *Felipe López* - *Frontend* 
